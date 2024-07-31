@@ -1,5 +1,15 @@
 #include "philo.h"
 
+
+int	cheak_dead(t_philo *philo)
+{
+	pthread_mutex_lock(philo->dead_lock);
+	if (*philo->dead == 1)
+		return (pthread_mutex_unlock(philo->dead_lock), 1);
+	pthread_mutex_unlock(philo->dead_lock);
+	return (0);
+}
+
 void	destory_all(char *str, t_program *program, pthread_mutex_t *forks)
 {
 	int	i;

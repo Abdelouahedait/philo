@@ -25,12 +25,12 @@ void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
 		philos[i].eating = 0;
 		philos[i].meals_eaten = 0;
 		init_input(&philos[i], str);
-		philos[i].start_time = get_current_time();
-		philos[i].last_meal = get_current_time();
+		philos[i].dead = &program->dead_flag;
 		philos[i].write_lock = &program->write_lock;
 		philos[i].dead_lock = &program->dead_lock;
 		philos[i].meal_lock = &program->meal_lock;
-		philos[i].dead = &program->dead_flag;
+		philos[i].start_time = get_current_time();
+		philos[i].last_meal = get_current_time();
 		philos[i].l_fork = &forks[i];
 		if (i == 0)
 			philos[i].r_fork = &forks[philos[i].num_of_philos - 1];

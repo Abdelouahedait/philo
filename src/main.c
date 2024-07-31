@@ -30,9 +30,13 @@ int main(int ac, char **av)
 	t_philo			philos[PHILO_MAX];
 	pthread_mutex_t	forks[PHILO_MAX];
 
-	if ((ac != 6 || ac != 5) )
-		return (1);
+	if ((ac != 6 && ac != 5) || ft_atoi(av[1]) > 200 || !check_param(av))
+		return(printf("(^_^) \033[0;31m(Error) \033[0m(*_*)\n"),0);
 	init_program(&program, philos);
 	init_forks(forks, ft_atoi(av[1]));
 	init_philos(philos, &program, forks, av);
+	thread_create(&program, forks);
+	destory_all(NULL, &program, forks);
+	
+	
 }
