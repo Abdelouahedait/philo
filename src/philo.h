@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-ait-bo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/03 12:07:02 by a-ait-bo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:07:04 by a-ait-bo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -40,11 +52,10 @@ typedef struct s_program
 	t_philo			*philos;
 }					t_program;
 
-
 /*init.c*/
 void	init_input(t_philo *philo, char **s);
-void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
-		char **str);
+void	init_philos(t_philo *philos, t_program *program,
+			pthread_mutex_t *forks, char **str);
 void	init_program(t_program *program, t_philo *philos);
 void	init_forks(pthread_mutex_t *forks, int philo_num);
 /*-----------*/
@@ -57,10 +68,9 @@ int		thread_create(t_program *program, pthread_mutex_t *forks);
 
 /*utils.c*/
 void	destory_all(char *str, t_program *program, pthread_mutex_t *forks);
-int	ft_usleep(size_t milliseconds);
+int		ft_usleep(size_t milliseconds);
 size_t	get_current_time(void);
 /*-----------*/
-
 
 /*routine.c*/
 void	think(t_philo *philo);
@@ -70,10 +80,9 @@ void	print_message(char *str, t_philo *philo, int id);
 /*-----------*/
 
 /*observer.c*/
-int	check_if_dead(t_philo *philos);
-int	philosopher_dead(t_philo *philo, size_t time_to_die);
-
-int	check_if_all_ate(t_philo *philos);
+int		check_if_dead(t_philo *philos);
+int		philosopher_dead(t_philo *philo, size_t time_to_die);
+int		check_if_all_ate(t_philo *philos);
 void	*monitor(void *pointer);
 /*-----------*/
 

@@ -1,5 +1,16 @@
-#include "philo.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-ait-bo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/03 12:06:29 by a-ait-bo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:06:35 by a-ait-bo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "philo.h"
 
 void	init_input(t_philo *philo, char **s)
 {
@@ -39,7 +50,6 @@ void	init_philos(t_philo *philos, t_program *program, pthread_mutex_t *forks,
 		i++;
 	}
 }
-
 
 void	init_program(t_program *program, t_philo *philos)
 {

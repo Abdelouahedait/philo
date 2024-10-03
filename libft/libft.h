@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 /*Libc functions*/
-void	ft_swap(int *a, int *b);
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   observer.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-ait-bo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/03 12:06:52 by a-ait-bo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:06:54 by a-ait-bo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-int philosopher_dead(t_philo *philo, size_t time_to_die)
+int	philosopher_dead(t_philo *philo, size_t time_to_die)
 {
+	int	dead;
+
 	pthread_mutex_lock(philo->meal_lock);
-	int dead = (get_current_time() - philo->last_meal >= time_to_die && philo->eating == 0);
+	dead = (get_current_time() - philo->last_meal >= time_to_die
+			&& philo->eating == 0);
 	pthread_mutex_unlock(philo->meal_lock);
-	return dead;
+	return (dead);
 }
 
 int	check_if_dead(t_philo *philos)
@@ -27,7 +42,6 @@ int	check_if_dead(t_philo *philos)
 	}
 	return (0);
 }
-
 
 int	check_if_all_ate(t_philo *philos)
 {
@@ -55,7 +69,6 @@ int	check_if_all_ate(t_philo *philos)
 	}
 	return (0);
 }
-
 
 void	*monitor(void *pointer)
 {

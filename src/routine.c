@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   routine.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-ait-bo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/03 12:07:18 by a-ait-bo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:07:20 by a-ait-bo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	print_message(char *str, t_philo *philo, int id)
@@ -11,67 +23,16 @@ void	print_message(char *str, t_philo *philo, int id)
 	pthread_mutex_unlock(philo->write_lock);
 }
 
-
 void	think(t_philo *philo)
 {
 	print_message("is thinking", philo, philo->id);
 }
-
 
 void	dream(t_philo *philo)
 {
 	print_message("is sleeping", philo, philo->id);
 	ft_usleep(philo->time_to_sleep);
 }
-// void eat(t_philo *philo)
-// {
-//     pthread_mutex_t *first_fork;
-//     pthread_mutex_t *second_fork;
-
-//     // if (philo->id % 2 == 0) {
-//         first_fork = philo->r_fork;
-//         second_fork = philo->l_fork;
-//     // } else {
-//     //     first_fork = philo->l_fork;
-//     //     second_fork  = philo->r_fork;
-//     // }
-//     if (pthread_mutex_lock(first_fork) != 0) 
-//         return;
-//     print_message("has taken a fork", philo, philo->id);
-//     if (philo->num_of_philos == 1)
-//     {
-//         ft_usleep(philo->time_to_die);
-//         pthread_mutex_unlock(first_fork);
-//         return;
-//     }
-//     if (pthread_mutex_lock(second_fork) != 0)
-//     {
-//         pthread_mutex_unlock(first_fork);
-//         return;
-//     }
-//     print_message("has taken a fork", philo, philo->id);
-//     philo->eating = 1;
-//     print_message("is eating", philo, philo->id);
-//     if (pthread_mutex_lock(philo->meal_lock) == 0)
-//     {
-//         philo->last_meal = get_current_time();
-//         philo->meals_eaten++;
-//         pthread_mutex_unlock(philo->meal_lock);
-//     }
-//     else
-//     {
-//         philo->eating = 0;
-//         pthread_mutex_unlock(first_fork);
-//         pthread_mutex_unlock(second_fork);
-//         return;
-//     }
-//     ft_usleep(philo->time_to_eat);
-//     philo->eating = 0;
-//     pthread_mutex_unlock(first_fork);
-//     pthread_mutex_unlock(second_fork);
-// }
-
-
 
 void	eat(t_philo *philo)
 {

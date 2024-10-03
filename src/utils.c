@@ -1,5 +1,16 @@
-#include "philo.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: a-ait-bo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/03 12:07:51 by a-ait-bo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:07:53 by a-ait-bo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "philo.h"
 
 int	cheak_dead(t_philo *philo)
 {
@@ -29,7 +40,6 @@ void	destory_all(char *str, t_program *program, pthread_mutex_t *forks)
 		i++;
 	}
 }
-
 
 int	ft_usleep(size_t milliseconds)
 {
