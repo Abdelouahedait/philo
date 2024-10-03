@@ -1,7 +1,10 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Werror 
 RM = rm -rf
-THR = -fsanitize=thread -g
+THR = -fsanitize=thread -g -O1
+
+TSAN_OPTIONS = second_deadlock_stack=1
+
 
 NAME = Philo
 LIB = libft/libft.a
@@ -13,13 +16,13 @@ CYAN = \033[0;36m
 
 all: ${NAME}
 	@printf "\n"
-	@printf "$(PURPLE)╔══════╗  $(PURPLE)╔══════╗$(CYAN)  ╔══════╗        $(CYAN)        \n"
-	@printf "$(PURPLE)║██████║  $(PURPLE)║██████║$(CYAN)  ║██████║  $(CYAN)    ██████   \n"
-	@printf "$(PURPLE)    ║██║  $(PURPLE)  ║██║  $(CYAN)  ║██╔ ╗██║ $(CYAN)   ██╔═══██╗ \n"
-	@printf "$(PURPLE)  ║██╔╝   $(PURPLE)  ║██║  $(CYAN)  ║██████╚╗ $(CYAN)   ██║   ██║ \n"
-	@printf "$(PURPLE)║██╔╝     $(PURPLE)  ║██║  $(CYAN)  ║██║ ║██║ $(CYAN)   ██║   ██║ \n"
-	@printf "$(PURPLE)║██████║  $(PURPLE)║██████║$(CYAN)  ║██║  ╚██║$(CYAN)    ██████╔╝\n"
-	@printf "$(PURPLE)╚══════╝  $(PURPLE)╚══════╝$(CYAN)  ╚══╝   ╚═╝$(CYAN)     ╚════╝ \n"
+	@printf "$(PURPLE)╔══════╗  $(PURPLE)╔══╗   ╔══╗     $(PURPLE)╔══════╗$(CYAN)    ╔══╗       $(CYAN)        \n"
+	@printf "$(PURPLE)║██████║  $(PURPLE)║██║   ║██║     $(PURPLE)║██████║$(CYAN)    ║██║       $(CYAN)    ██████   \n"
+	@printf "$(PURPLE)║██   █║  $(PURPLE)║██║═══║██║     $(PURPLE) ═║██║═ $(CYAN)    ║██║       $(CYAN)   ██╔═══██╗ \n"
+	@printf "$(PURPLE)║██████║  $(PURPLE)║█████████║     $(PURPLE)  ║██║  $(CYAN)    ║██║       $(CYAN)   ██║   ██║ \n"
+	@printf "$(PURPLE)║██║      $(PURPLE)║██║═══║██║     $(PURPLE) ═║██║═ $(CYAN)    ║██╚═════╗ $(CYAN)   ██║   ██║ \n"
+	@printf "$(PURPLE)║██║      $(PURPLE)║██║   ║██║     $(PURPLE)║██████║$(CYAN)    ║████████║ $(CYAN)    ██████╔╝\n"
+	@printf "$(PURPLE)╚══╝      $(PURPLE)╚══╝   ╚══╝     $(PURPLE)╚══════╝$(CYAN)    ╚════════╝ $(CYAN)     ╚════╝ \n"
 
 
 ${LIB}:

@@ -7,8 +7,8 @@ void	*routine_fun(void *pointer)
 	t_philo	*philo;
 
 	philo = (t_philo *)pointer;
-	// if (philo->id % 2 == 0)
-	// 	ft_usleep(1);
+	if (philo->id % 2 == 0)
+		ft_usleep(1);
 	while (!cheak_dead(philo))
 	{
 		eat(philo);

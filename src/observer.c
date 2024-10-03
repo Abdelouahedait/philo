@@ -2,10 +2,10 @@
 
 int philosopher_dead(t_philo *philo, size_t time_to_die)
 {
-    pthread_mutex_lock(philo->meal_lock);
-    int dead = (get_current_time() - philo->last_meal >= time_to_die && philo->eating == 0);
-    pthread_mutex_unlock(philo->meal_lock);
-    return dead;
+	pthread_mutex_lock(philo->meal_lock);
+	int dead = (get_current_time() - philo->last_meal >= time_to_die && philo->eating == 0);
+	pthread_mutex_unlock(philo->meal_lock);
+	return dead;
 }
 
 int	check_if_dead(t_philo *philos)
