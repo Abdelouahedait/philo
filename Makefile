@@ -6,9 +6,9 @@ THR = -fsanitize=thread -g -O1
 TSAN_OPTIONS = second_deadlock_stack=1
 
 
-NAME = Philo
+NAME = philo
 LIB = libft/libft.a
-SRC =	src/main.c src/observer.c src/routine.c src/init.c src/utils.c \
+SRC =	src/my_lib.c src/main.c src/observer.c src/routine.c src/init.c src/utils.c \
 		src/thread.c  
 
 PURPLE = \033[0;35m
@@ -25,20 +25,15 @@ all: ${NAME}
 	@printf "$(PURPLE)╚══╝      $(PURPLE)╚══╝   ╚══╝     $(PURPLE)╚══════╝$(CYAN)    ╚════════╝ $(CYAN)     ╚════╝ \n"
 
 
-${LIB}:
-	make	all -C  libft
 
 
-
-${NAME}: ${SRC} ${LIB} 
-	${CC} ${THR} ${CFLAGS} ${SRC} ${LIB}  -o ${NAME}
+${NAME}: ${SRC} 
+	${CC} ${THR} ${CFLAGS} ${SRC} -o ${NAME}
 
 clean:
-	make clean -C  libft
 	${RM} ${NAME}
 
 fclean: clean
-	${MAKE} fclean -C  libft -s
 	${RM} ${NAME}
 
 re: fclean all

@@ -14,7 +14,6 @@
 # define PHILO_H
 
 # include <stdio.h>
-# include "../libft/libft.h"
 # include <pthread.h>
 # include <stdlib.h>
 # include <sys/time.h>
@@ -51,6 +50,14 @@ typedef struct s_program
 	pthread_mutex_t	write_lock;
 	t_philo			*philos;
 }					t_program;
+
+
+/*my_lib.c*/
+size_t	ft_strlen(const char *str);
+char	*ft_strchr(const char *str, int ch);
+int	ft_isdigit(int c);
+int	ft_atoi(const char *str);
+/*--------*/
 
 /*init.c*/
 void	init_input(t_philo *philo, char **s);
